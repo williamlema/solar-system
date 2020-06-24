@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /weather-service
+
+logging:
+  level:
+    com.zaxxer.hikari: trace
+
+weather:
+  planet:
+    Ferengi:
+      angular-speed: 1
+      clockwise: true
+      sun-distance: 500
+    Betasoide:
+      angular-speed: 3
+      clockwise: true
+      sun-distance: 2000
+    Vulcano:
+      angular-speed: 5
+      clockwise: false
+      sun-distance: 1000
