@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class PlanetService implements IPlanetService {
 
+    /**
+     * Dado un planeta, realiza el cálculo de la rotación del planeta teniendo en cuenta su estado interno,
+     * actualizando la información del mismo (nuevas coordenadas y nuevo ángulo).
+     *
+     * @param planet
+     */
     @Override
     public void doRotation(Planet planet) {
 

@@ -31,6 +31,12 @@ public class PlanetFactory implements IPlanetFactory {
     @Value("${weather.planet.Vulcano.sun-distance}")
     private int vulcanoSunDistance;
 
+    /**
+     * Dado el nombre de unos de los planetas se genera un objeto con la información inicial de dicho planeta
+     *
+     * @param name
+     * @return
+     */
     @Override
     public Planet createPlanet(PlanetName name) {
         Planet planet = null;

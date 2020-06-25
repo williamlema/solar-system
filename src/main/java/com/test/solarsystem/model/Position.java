@@ -1,6 +1,7 @@
 package com.test.solarsystem.model;
 
 public class Position {
+
     private double x;
     private double y;
     private int angle;

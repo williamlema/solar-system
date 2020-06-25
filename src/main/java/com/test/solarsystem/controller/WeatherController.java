@@ -1,5 +1,6 @@
 package com.test.solarsystem.controller;
 
+import com.test.solarsystem.payload.WeatherResponse;
 import com.test.solarsystem.service.IWeatherService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,8 @@ public class WeatherController {
     }
 
     @GetMapping
-    public ResponseEntity<String> getWeatherByDay (@RequestParam("day") Integer day){
-
-        return ResponseEntity.ok("Init weather simulations successfully");
+    public ResponseEntity<WeatherResponse> getWeatherByDay (@RequestParam("day") Integer day){
+        return ResponseEntity.ok(this.service.getDayWeather(day));
     }
 
 }
