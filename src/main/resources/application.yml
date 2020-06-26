@@ -1,8 +1,5 @@
 server:
-  port: 8080
-  servlet:
-    context-path: /weather-service
-
+  port: 9081
 spring:
   datasource:
     driverClassName: org.h2.Driver
@@ -11,7 +8,7 @@ spring:
     password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: create-drop
     properties:

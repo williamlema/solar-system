@@ -1,5 +1,6 @@
 package com.test.solarsystem.controller;
 
+import com.test.solarsystem.payload.AnalyticsResponse;
 import com.test.solarsystem.payload.WeatherResponse;
 import com.test.solarsystem.service.IWeatherService;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,8 @@ public class WeatherController {
     }
 
     @GetMapping("analytics")
-    public ResponseEntity<String> getAnalytics (){
-
-        return ResponseEntity.ok("Init weather simulations successfully");
+    public ResponseEntity<AnalyticsResponse> getAnalytics (){
+        return ResponseEntity.ok(this.service.getAnalytics());
     }
 
     @GetMapping

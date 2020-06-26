@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  solar-system:
+    container_name: solar-system-container
+    build: .
+    ports:
+      - 9081:9081

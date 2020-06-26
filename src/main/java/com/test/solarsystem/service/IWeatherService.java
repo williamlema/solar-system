@@ -1,6 +1,7 @@
 package com.test.solarsystem.service;
 
 import com.test.solarsystem.model.Position;
+import com.test.solarsystem.payload.AnalyticsResponse;
 import com.test.solarsystem.payload.WeatherResponse;
 
 public interface IWeatherService {
@@ -16,4 +17,6 @@ public interface IWeatherService {
     boolean verifySunInArea(Position ferengiPos, Position betasoidePos, Position vulcanoPos, Position sun);
 
     WeatherResponse getDayWeather(Integer day);
+
+    AnalyticsResponse getAnalytics();
 }

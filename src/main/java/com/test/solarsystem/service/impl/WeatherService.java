@@ -6,6 +6,7 @@ import com.test.solarsystem.exception.BadRequestException;
 import com.test.solarsystem.model.Planet;
 import com.test.solarsystem.model.Position;
 import com.test.solarsystem.model.Weather;
+import com.test.solarsystem.payload.AnalyticsResponse;
 import com.test.solarsystem.payload.WeatherResponse;
 import com.test.solarsystem.repositorio.WeatherRepository;
 import com.test.solarsystem.service.IPlanetFactory;
@@ -16,7 +17,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class WeatherService implements IWeatherService {
@@ -180,10 +183,44 @@ public class WeatherService implements IWeatherService {
         return false;
     }
 
+    /**
+     * Valida si el día solicitado se encuentra en el sistema, de ser así entrega la información del día y el
+     * tipo de clima, en el caso en que no esté en el sistema se arrojará un mensaje de error.
+     *
+     * @param day
+     * @return
+     */
     @Override
     public WeatherResponse getDayWeather(Integer day) {
         Weather weather = this.weatherRepository.findById(day).orElseThrow(()-> new BadRequestException("Day not found"));
         return new WeatherResponse(weather.getDay(), weather.getPeriodType());
+    }
+
+    /**
+     * Realiza los cálculos para obtener los periodos de sequía, lluvia con el/los días máximos de lluvia y los periodos
+     * óptimos de clima.
+     *
+     * @return
+     */
+    @Override
+    public AnalyticsResponse getAnalytics() {
+        if (this.weatherRepository.findAll().size()==0) {
+            throw new BadRequestException("Data not found, run init weather simulations");
+        }
+        List<Weather> rainyWeather = this.weatherRepository.findAllByPeriodType(PeriodType.RAINY);
+        rainyWeather.sort(Comparator.comparing(Weather::getArea));
+        double biggerArea = rainyWeather.get(rainyWeather.size()-1).getArea();
+        System.out.println(String.format("B:[%s]",biggerArea));
+        List<Weather> droughtWeather = this.weatherRepository.findAllByPeriodType(PeriodType.DROUGHT);
+        List<Weather> optimalWeather = this.weatherRepository.findAllByPeriodType(PeriodType.OPTIMAL);
+        return new AnalyticsResponse(
+                droughtWeather.size(),
+                rainyWeather.size(),
+                rainyWeather.stream()
+                        .filter(weather -> biggerArea == weather.getArea())
+                        .map(weather -> weather.getDay())
+                        .collect(Collectors.toList()),
+                optimalWeather.size());
     }
 
     double lengthSide(Position p1, Position p2) {
