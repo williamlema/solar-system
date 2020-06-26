@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "d51d35d1-805b-4220-812a-66e6cf1a0204",
+		"name": "Solar System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Init Weather Simulation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9081/weather/init",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"weather",
+								"init"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get day Information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9081/weather?day=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "day",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get weather analytics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9081/weather/analytics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9081",
+							"path": [
+								"weather",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Cloud",
+			"item": [
+				{
+					"name": "Init Weather Simulation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://solarsystem-env.eba-xzagkmjh.us-west-2.elasticbeanstalk.com/weather/init",
+							"protocol": "http",
+							"host": [
+								"solarsystem-env",
+								"eba-xzagkmjh",
+								"us-west-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"weather",
+								"init"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get day Information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://solarsystem-env.eba-xzagkmjh.us-west-2.elasticbeanstalk.com/weather?day=1",
+							"protocol": "http",
+							"host": [
+								"solarsystem-env",
+								"eba-xzagkmjh",
+								"us-west-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"weather"
+							],
+							"query": [
+								{
+									"key": "day",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get weather analytics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://solarsystem-env.eba-xzagkmjh.us-west-2.elasticbeanstalk.com/weather/analytics",
+							"protocol": "http",
+							"host": [
+								"solarsystem-env",
+								"eba-xzagkmjh",
+								"us-west-2",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"weather",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
