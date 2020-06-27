@@ -223,7 +223,7 @@ public class WeatherService implements IWeatherService {
                 optimalWeather.size());
     }
 
-    double lengthSide(Position p1, Position p2) {
+    private double lengthSide(Position p1, Position p2) {
         double xDiff = p1.getX() - p2.getX();
         double yDiff = p1.getY() - p2.getY();
         return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
