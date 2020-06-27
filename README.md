@@ -44,8 +44,8 @@ $ docker-compose up
 The previous command will download the source project from [Solar System repository](https://github.com/williamlema/solar-system) and compile the code in order to deploy the application in a container
 
 
-The Api will run over http://localhost:9081/, to test the api you can use the request in `Local` folder in the postman file `Solar System.postman_collection.json` located at `resources` folder
+The Api will run over http://localhost:9081/, to test the api you can use the request in `Local` folder in the postman file [Solar System.postman_collection.json](https://github.com/williamlema/solar-system/blob/master/src/main/resources/Solar%20System.postman_collection.json) located at `resources` folder
 
 ## Cloud hosting
 
-This application is running in AWS Elastic Beanstalk over the following DNS [AWS Solar System](http://solarsystem-env.eba-xzagkmjh.us-west-2.elasticbeanstalk.com/), to test the application in aws you can the request in `Cloud` folder in the postman file `Solar System.postman_collection.json` located at `resources` folder
+This application is running in AWS Elastic Beanstalk over the following DNS [AWS Solar System](http://solarsystem-env.eba-xzagkmjh.us-west-2.elasticbeanstalk.com/), to test the application in aws you can the request in `Cloud` folder in the postman file [Solar System.postman_collection.json](https://github.com/williamlema/solar-system/blob/master/src/main/resources/Solar%20System.postman_collection.json) located at `resources` folder
